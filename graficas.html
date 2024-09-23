@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes y graficos</title>
+    <link rel="stylesheet" href="css/estilo_graficas.css">
+    <link rel="stylesheet" href="css/estilo_header.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <my-header></my-header>
+    <password-modal></password-modal>
+    <main>
+        <div class="contenedores">
+            <div class="contenedor">
+                <p>Ingresos Totales</p>
+                <p id="ingresos_totales"></p>
+            </div>
+            <div class="contenedor">
+                <p>Gastos</p>
+                <p id="gastos_totales"></p>
+            </div>
+            <div class="contenedor">
+                <p>Utilidades</p>
+                <p id="utilidades"></p>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <canvas id="barChart"></canvas>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </main>
+    <div class="botonesContenedor">
+        <a class="boton" id="register-income" href="transacciones.html">
+            <img src="img/Ingresos_sin_fondo.png" alt="">
+            <p class="texto">Registrar ingresos</p>
+        </a>
+        
+        <a class="boton" id="register-expense" href="transacciones.html">
+            <img src="img/Gastos_sin_fondo.png" alt="">
+            <p class="texto">Registrar gastos</p>
+        </a>
+        <a class="boton" id="budget" href="transacciones.html">
+            <img src="img/Presupuestos_sin_fondo.png" alt="">
+            <p class="texto">Presupuestos</p>
+        </a>
+    </div>
+    <footer>
+    <p>© 2024 CoinKeeper</p>
+    </footer>
+    <script src="app/graficas.js"></script>
+    <script src="app/header.js"></script>
+    <script src="app/terminos_condiciones.js"></script>
+</body>
+</html>

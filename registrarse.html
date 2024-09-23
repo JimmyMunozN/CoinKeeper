@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo_registrarse.css">
+</head>
+<body>
+    <header class="encabezado_principal">
+        <div class="logo">
+            <img src="img/Logo_sin_fondo.png" alt="Logo Coinkeeper">
+        </div>
+    </header>
+    <form class="formato_registro" method="post">
+        <h1>Registro de usuario</h1>
+        <input type="text" class="usuario" name="usuario" id="usuario_id" placeholder="Usuario"/>
+        <input type="text" class="correo" name="correo" id="correo_id" placeholder="Correo electronico"/>
+        <div class="text_contrasena">
+            <input type="password" class="contrasena" name="contrasena" id="contrasena_id" placeholder="Contraseña"/>
+            <button class="ver_contrasena" onclick="cambiar_icono()"><i class='fa-regular fa-eye-slash' style="color: #2d3047;"></i></button>
+        </div>
+        <div class="text_contrasena">
+            <input type="password" class="contrasena_2" name="contrasena" id="contrasena_2_id" placeholder="Confirmar contraseña"/>
+            <button class="ver_contrasena_2" onclick="cambiar_icono_2()"><i class='fa-regular fa-eye-slash' style="color: #2d3047;"></i></button>
+        </div>
+        <input type="number" class="telefono" name="telefono" id="telefono_id" placeholder="Telefono"/>
+        <input type="number" class="edad" name="edad" id="edad_id" placeholder="Edad"/>
+        <div class="terminos_condiciones">
+            <input type="checkbox" class="acepta_terminos" id="acepta_terminos">
+            <label>Acepto los <button type="button" id="showTermsModalButton">términos y condiciones</button></label>
+            <div id="modalTerminos" class="modal_terminos"></div>
+        </div>
+        <button type="submit" class="boton_registro">
+            <div class="registrar">Regístrate</div>
+            <img src="img/Olla_sin_fondo.png" alt="Olla con monedas de oro">
+        </button>
+    </form>
+    <script src="app/registrarse.js"></script>
+    <script src="app/terminos_condiciones.js"></script>
+</body>
+</html>

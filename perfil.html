@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo_perfil.css">
+    <link rel="stylesheet" href="css/estilo_header.css">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!--SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <my-header></my-header>
+    <password-modal></password-modal>
+    <main>
+        <!-- Modal para seleccionar idioma -->
+        <div id="idiomaModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeIdiomaModal"><i class="fa-solid fa-circle-xmark"></i></span>
+                <h2>Selecciona un nuevo idioma</h2>
+                <select id="idiomaSelect" class="modal_select">
+                    <option value="empty">Seleccionar</option>
+                    <option value="de">Alemán</option>
+                    <option value="ar">Árabe</option>
+                    <option value="bn">Bengalí</option>
+                    <option value="zh">Chino</option>
+                    <option value="ko">Coreano</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Francés</option>
+                    <option value="hi">Hindi</option>
+                    <option value="en">Inglés</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">Japonés</option>
+                    <option value="pt">Portugués</option>
+                    <option value="ru">Ruso</option>
+                    <option value="tr">Turco</option>
+                    <option value="vi">Vietnamita</option>
+                </select>
+                <button id="saveIdioma" class="save_modal">Guardar</button>
+            </div>
+        </div>
+
+        <!-- Modal para seleccionar banco -->
+        <div id="bancoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeBancoModal"><i class="fa-solid fa-circle-xmark" style="color: #507255;"></i></span>
+                <h2>Selecciona un nuevo banco</h2>
+                <select id="bancoSelect" class="modal_select">
+                    <option value="empty">Seleccionar</option>
+                    <option value="Banco Caja Social">Banco Caja Social</option>
+                    <option value="Banco de Bogotá">Banco de Bogotá</option>
+                    <option value="Banco de Occidente">Banco de Occidente</option>
+                    <option value="Banco Itaú">Banco Itaú</option>
+                    <option value="Bancolombia">Bancolombia</option>
+                    <option value="Citibank">Citibank</option>
+                    <option value="Davivienda">Davivienda</option>
+                    <option value="Daviplata">Daviplata</option>
+                    <option value="Nequi">Nequi</option>
+                    <option value="PayPal">PayPal</option>
+                    <option value="Santander">Santander</option>
+                    <option value="Scotiabank">Scotiabank</option>
+                </select>
+                <button id="saveBanco" class="save_modal">Guardar</button>
+            </div>
+        </div>
+        <div id="personal" class="info_personal">
+            <img src="img/user.png" alt="Imagen de usuario">
+            <i id="editButton" class="fa-solid fa-pen-to-square"></i>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" readonly>
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad" readonly>
+            <label for="correo">Correo electrónico</label>
+            <input type="email" name="correo" id="correo" readonly>
+            <label for="telefono">Teléfono</label>
+            <input type="number" name="telefono" id="telefono" readonly>
+        </div>
+        <div id="adicional" class="info_adicional">
+            <div class="upper">
+                <div id="idioma_user" class="idioma_lista">
+                    <h2>Preferencias de idiomas</h2>
+                    <ol id="idiomas" class="lista_info"></ol>
+                    <i id="edit_languages" class="fa-solid fa-pen-to-square"></i>
+                </div>
+                <div id="moneda" class="tipo_moneda">
+                    <h2>Configuración de moneda</h2>
+                    <form>
+                        <select name="pref_monedas" id="pref_monedas">
+                            <option value="na">Seleccione una opción</option>
+                            <optgroup label="América">
+                                <option value="USD">Dolar estadounidense (USD)</option>
+                                <option value="COP">Peso colombiano (COP)</option>
+                                <option value="BRL">Real brasileño (BRL)</option>
+                                <option value="CAD">Dólar canadiense (CAD)</option>
+                                <option value="MXN">Peso mexicano (MXN)</option>
+                            </optgroup>
+                            <optgroup label="Europa">
+                                <option value="EUR">Euro (EUR)</option>
+                                <option value="GBP">Libra esterlina (GBP)</option>
+                                <option value="CHF">Franco suizo (CHF)</option>
+                            </optgroup>
+                            <optgroup label="Asia">
+                                <option value="JPY">Yen japonés (JPY)</option>
+                                <option value="CNY">Yuan chino (CNY)</option>
+                                <option value="INR">Rupia india (INR)</option>
+                                <option value="KRW">Won surcoreano (KRW)</option>
+                                <option value="THB">Baht tailandés (THB)</option>
+                            </optgroup>
+                            <optgroup label="África">
+                                <option value="ZAR">Rand sudafricano (ZAR)</option>
+                                <option value="NGN">Naira nigeriana (NGN)</option>
+                                <option value="EGP">Libra egipcia (EGP)</option>
+                                <option value="KES">Shilling keniano (KES)</option>
+                                <option value="MAD">Dirham marroquí (MAD)</option>
+                            </optgroup>
+                            <optgroup label="Oceanía">
+                                <option value="AUD">Dólar australiano (AUD)</option>
+                                <option value="NZD">Dólar neozelandés (NZD)</option>
+                                <option value="SGD">Dólar de Singapur (SGD)</option>
+                            </optgroup>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="lower">
+                <div id="bancos_user" class="bancos_lista">
+                    <h2>Bancos</h2>
+                    <ol id="bancos" class="lista_info"></ol>
+                    <i id="edit_bank" class="fa-solid fa-pen-to-square"></i>
+                </div>
+                <div id="guardar" class="guardar_cambios">
+                    <img src="img/Logo_sin_fondo.png" alt="Logo CoinKeeper">
+                    <input type="button" name="cambios" id="cambios" value="Guardar Cambios">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 CoinKeeper</p>
+    </footer>
+    <script src="app/header.js"></script>
+    <script src="app/terminos_condiciones.js"></script>
+    <script src="app/perfil.js"></script>
+</body>
+</html>

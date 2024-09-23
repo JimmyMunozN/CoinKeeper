@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo_inicio_sesion.css">
+</head>
+<body>
+    <script src="app/inicio_sesion.js"></script>
+    <header class="encabezado_principal">
+        <div class="logo">
+            <img src="img/Logo_sin_fondo.png" alt="Logo Coinkeeper">
+        </div>
+    </header>
+    <form class="formato_inicio">
+        <h1>Iniciar sesión</h1>
+        <input type="text" class="usuario" name="usuario" placeholder="Correo"/>
+        <div class="text_contrasena">
+            <input type="password" class="contrasena" name="contrasena" placeholder="Contraseña"/>
+            <button id="ver_contrasena" onclick="cambiar_icono()"><i class='fa-regular fa-eye-slash' style="color: #2d3047;"></i></button>
+        </div>
+        <a class="recuperar_contrasena" onclick="">Recuperar contraseña</a>
+        <p class="registrarse">¿No tienes cuenta? <a href="registrarse.html">crea una</a></p>
+        <button type="submit" class="boton_inicio">
+            <div class="iniciar_sesion">Iniciar Sesion</div>
+            <img src="img/Olla_sin_fondo.png" alt="Olla con monedas de oro">
+        </button>
+    </form>
+</body>
+</html>

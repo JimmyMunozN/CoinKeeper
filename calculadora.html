@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financiera</title>
+    <link rel="stylesheet" href="css/estilo_calculadora.css">
+    <link rel="stylesheet" href="css/estilo_header.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <my-header></my-header>
+    <password-modal></password-modal>
+    <main>
+        <form>
+            <h1>Calculadora financiera</h1>
+            <hr>
+            <div class="label_calcular">
+                <label for="calculos">Calcular:</label>
+                <select name="calculos" id="calculos" onchange="cambiar_formulario()" class="item_calcular">
+                    <option value="nada">Seleccione una opción</option>
+                    <option value="prestamo">Préstamo</option>
+                    <option value="anualidad">Ahorro bancario</option>
+                    <option value="meta">Meta de ahorro</option>
+                    <option value="tasas">Convertir tasas de interes</option>
+                </select>
+            </div>
+
+            <!--Modulo Prestamos-->
+            <div id="mod_prestamo" style="display: none;" class="modulo_prestamo">
+                <div class="form-group">
+                    <label for="monto">Monto total</label>
+                    <input type="text" name="monto" id="monto" class="monto_total">
+                </div>
+                <div class="form-group">
+                    <label for="tasa">Tasa de interés (Efectiva anual) <br> Sin porcentaje</label>
+                    <input type="text" name="tasa" id="tasa" class="tasa_interes">
+                </div>
+                <div class="form-group">
+                    <label for="periodo">Plazo (meses)</label>
+                    <input type="text" name="periodo" id="periodo" class="periodo_meses">
+                </div>
+                <input type="button" name="calcular" id="calcular" class="boton_calcular" onclick="calcular_prestamo(); mostrar_tabla()" value="Calcular">
+                <div id="tabla_amortizacion" class="tabla"></div>
+            </div>
+            
+            <!--Modulo ahorro bancario-->
+            <div id="mod_ahorro" style="display: none;" class="modulo_ahorro">
+                <div class="form-group">
+                    <label for="ahorro">Ahorro mensual</label>
+                    <input type="text" name="ahorro" id="ahorro" class="monto_ahorro">
+                </div>
+                <div class="form-group">
+                    <label for="interes">Interes mensual</label>
+                    <input type="text" name="interes" id="interes" class="interes_mensual">
+                </div>
+                <div class="form-group">
+                    <label for="meses">Meses de ahorro</label>
+                    <input type="text" name="meses" id="meses" class="meses_ahorro">
+                </div>
+                <input type="button" name="calcular" id="calcular" class="boton_calcular" onclick="calcular_ahorro()" value="Calcular">
+                <p id="resultado_ahorro"></p>
+            </div>
+            
+            <!--Modulo meta de ahorro-->
+            <div id="mod_meta" style="display: none;" class="modulo_meta">
+                <div class="form-group">
+                    <label for="meta">Meta de ahorro</label>
+                    <input type="text" name="meta" id="meta" class="meta_ahorro">
+                </div>
+                <div class="form-group">
+                    <label for="interes_meta">Interes mensual</label>
+                    <input type="text" name="interes_meta" id="interes_meta" class="interes_mensual">
+                </div>
+                <div class="form-group">
+                    <label for="meses_meta">Meses para ahorrar</label>
+                    <input type="text" name="meses_meta" id="meses_meta" class="meses_ahorro"> 
+                </div>
+                <input type="button" name="calcular" id="calcular" class="boton_calcular" onclick="calcular_meta()" value="Calcular">
+                <p id="resultado_meta"></p>
+            </div>
+            
+            <!--Modulo conversor de tasas-->
+            <div id="mod_conversor" style="display: none;" class="modulo_conversor">
+                <div class="form-group">
+                    <label for="porcentaje">Tasa a convertir</label>
+                    <input type="text" name="porcentaje" id="porcentaje" class="porcentaje_tasa">
+                </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo de tasa</label>
+                    <select name="tipo" id="tipo" class="tipo_tasa" onchange="conversor_tasas()">
+                        <option value="nada">Seleccione</option>
+                        <option value="mv">Mes vencido</option>
+                        <option value="ma">Mes anticipado</option>
+                        <option value="ea">Efectivo anual</option>
+                    </select>
+                    <label for="tipo_final">Convertir a</label>
+                    <select name="tipo_final" id="tipo_final" class="tipo_tasa_final" onchange="conversor_tasas()">
+                        <option value="nada">Seleccione</option>
+                        <option value="mv">Mes vencido</option>
+                        <option value="ma">Mes anticipado</option>
+                        <option value="ea">Efectivo anual</option>
+                    </select>
+                </div>
+                <p id="resultado_conversor"></p>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 CoinKeeper</p>
+    </footer>
+    <script src="app/calculadora.js"></script>
+    <script src="app/header.js"></script>
+    <script src="app/terminos_condiciones.js"></script>
+</body>
+</html>

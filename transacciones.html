@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo_transacciones.css">
+    <link rel="stylesheet" href="css/estilo_header.css">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!--SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <my-header></my-header>
+  <password-modal></password-modal>
+    <main>
+        <div class="container">
+          <div class="title"><b>Gestión de Transacciones</b></div>
+          <hr />
+          <div class="button-container">
+            <button id="showIncome"><b>Ingresos</b></button>
+            <button id="showExpenses"><b>Gastos</b></button>
+            <button id="showBudgets"><b>Presupuestos</b></button>
+            <button id="showAll"><b>Todos</b></button>
+          </div>
+  
+          <h1 id="history-title">Historial</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Categoría</th>
+                <th>Método de pago</th>
+                <th>Moneda</th>
+                <th>Total</th>
+                <th>Total COP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Aquí se agregarán dinámicamente las filas con JavaScript -->
+            </tbody>
+          </table>
+  
+          <div class="total-container">
+            <button class="btn">Registrar nuevo</button>
+            <div class="total">Total:</div>
+          </div>
+        </div>
+      </main>
+  
+      <!-- Modal -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <div id="modal-stage-1">
+            <h2>Selecciona el tipo de transacción</h2>
+            <hr>
+            <button class="modal-btn" id="btn-income">Ingresos</button>
+            <button class="modal-btn" id="btn-expenses">Gastos</button>
+            <button class="modal-btn" id="btn-budgets">Presupuestos</button>
+          </div>
+          
+          <div id="modal-stage-2" style="display: none">
+            <h2 id="form-title">Registrar nueva transacción</h2>
+            <form id="entryForm">
+              <label for="date">Fecha:</label>
+              <input type="date" id="date" name="date" required /><br /><br />
+  
+              <label for="category">Categoría</label>
+              <select id="category" name="category">
+                <option value="">Selecciona una categoría</option>
+                <option value="Agregar nuevo">Agregar nuevo +</option>
+              </select>
+              <input
+                type="text"
+                id="newCategoryInput"
+                placeholder="Nueva categoría"
+                style="display: none"
+              />
+  
+              <label for="paymentMethod">Método de Pago:</label>
+              <select id="paymentMethod" name="paymentMethod">
+                <option value="Efectivo">Efectivo</option>
+                <option value="Transferencia">Transferencia</option></select>
+              <br /><br />
+  
+              <label for="currency">Moneda:</label>
+              <select id="currency" name="currency">
+                <option value="na">Seleccione una opción</option>
+                <optgroup label="América">
+                    <option value="USD">Dolar estadounidense (USD)</option>
+                    <option value="COP">Peso colombiano (COP)</option>
+                    <option value="BRL">Real brasileño (BRL)</option>
+                    <option value="CAD">Dólar canadiense (CAD)</option>
+                    <option value="MXN">Peso mexicano (MXN)</option>
+                </optgroup>
+                <optgroup label="Europa">
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">Libra esterlina (GBP)</option>
+                    <option value="CHF">Franco suizo (CHF)</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option value="JPY">Yen japonés (JPY)</option>
+                    <option value="CNY">Yuan chino (CNY)</option>
+                    <option value="INR">Rupia india (INR)</option>
+                    <option value="KRW">Won surcoreano (KRW)</option>
+                    <option value="THB">Baht tailandés (THB)</option>
+                </optgroup>
+                <optgroup label="África">
+                    <option value="ZAR">Rand sudafricano (ZAR)</option>
+                    <option value="NGN">Naira nigeriana (NGN)</option>
+                    <option value="EGP">Libra egipcia (EGP)</option>
+                    <option value="KES">Shilling keniano (KES)</option>
+                    <option value="MAD">Dirham marroquí (MAD)</option>
+                </optgroup>
+                <optgroup label="Oceanía">
+                    <option value="AUD">Dólar australiano (AUD)</option>
+                    <option value="NZD">Dólar neozelandés (NZD)</option>
+                    <option value="SGD">Dólar de Singapur (SGD)</option>
+                </optgroup>
+            </select>
+            <br /><br />
+  
+              <label for="total">Total:</label>
+              <input
+                type="number"
+                id="total"
+                name="total"
+                step="0.1"
+                required
+              /><br /><br />
+              <input type="hidden" id="transactionType" name="transactionType" />
+              <input type="submit" id="guardar" value="Guardar" />
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <footer>
+        <p>© 2024 CoinKeeper</p>
+      </footer>
+      <script src="app/transacciones.js"></script>
+      <script src="app/header.js"></script>
+      <script src="app/terminos_condiciones.js"></script>
+</body>
+</html>
