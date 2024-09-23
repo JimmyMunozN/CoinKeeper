@@ -1,0 +1,175 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    Botón para abrir el pop-up
+    <button id="open-popup">Open Pop-up</button>
+    
+    Pop-up
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Enter Details</h2>
+            <form id="popup-form">
+                <label for="data1">Data 1:</label>
+                <input type="text" id="data1" name="data1" required>
+                <br>
+                <label for="data2">Data 2:</label>
+                <input type="text" id="data2" name="data2" required>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Icon Button</title>
+    <style>
+        .grid-button {
+            display: inline-block;
+            padding: 10px;
+            background-color: #2d3047;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .grid-icon {
+            display: grid;
+            grid-template-columns: repeat(3, 5px);
+            grid-template-rows: repeat(3, 5px);
+            gap: 3px;
+        }
+
+        .grid-item {
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <button class="grid-button">
+        <div class="grid-icon">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+    </button>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tasa = Math.pow((1 + 0.23), (1 / 12)) - 1;
+        document.write(tasa, '<br>')
+        let cuota = (100000000 * tasa) / (1 - Math.pow(1 + tasa, -60))
+        document.write(cuota)
+    </script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rates</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tasas de Cambio</h1>
+    <table id="exchangeRatesTable">
+        <thead>
+            <tr>
+                <th>Moneda</th>
+                <th>Tasa de Cambio</n>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se agregarán aquí dinámicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        const API_KEY = '688371db5c2fbc071548d271';
+        const apiUrl = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/COP`;
+        const tableBody = document.querySelector('#exchangeRatesTable tbody');
+
+        const obtenerTasasDeCambio = async () => {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                if (data.result === "success") {
+                    const conversionRates = data.conversion_rates;
+
+                    // Mostrar tasas en consola
+                    console.log('Tasas de cambio:', conversionRates);
+
+                    // Mostrar tasas en la tabla
+                    Object.keys(conversionRates).forEach(currency => {
+                        const rate = conversionRates[currency];
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${currency}</td>
+                            <td>${rate.toFixed(4)}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+
+                } else {
+                    console.error('Error en la respuesta de la API:', data);
+                }
+            } catch (error) {
+                console.error('Error al obtener las tasas de cambio:', error);
+            }
+        };
+
+        obtenerTasasDeCambio();
+    </script>
+</body>
+</html>
