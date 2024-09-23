@@ -1,0 +1,142 @@
+/* Estilo encabezados */
+* {
+    box-sizing: border-box;
+    padding-top: 0;
+}
+
+body {
+    background: #507255;
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    background: #DFF3E1;
+    padding: 50px;
+}
+
+form {
+    margin: 50px 30%;
+    width: 40%;
+    max-height: 750px;
+    background: #b3d9db;
+    padding: 50px 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2D3047;
+}
+
+form hr {
+    border: solid #2D3047 1px;
+    width: 100%;
+}
+
+form .label_calcular {
+    margin-top: 15px;
+    color: #2D3047;
+    font-weight: bold;
+}
+
+form .item_calcular {
+    background: #b3d9db;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.modulo_prestamo, .modulo_ahorro, .modulo_meta, .modulo_conversor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre cada grupo de label e input */
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 20px; /* Espacio entre label e input */
+}
+
+.form-group label {
+    width: 50%; /* Ajusta el ancho del label */
+    margin: 0; /* Elimina el margen */
+    color: #2D3047;
+    font-weight: bold;
+}
+
+.form-group input[type="text"], .form-group select {
+    flex: 1; /* El input y select ocupan el espacio restante */
+    padding: 5px;
+    border: 1px solid #2D3047;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #b3d9db;
+}
+
+.boton_calcular {
+    width: 100%;
+    padding: 10px;
+    background-color: #2D3047;
+    color: #DFF3E1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.boton_calcular:hover {
+    background: #507255;
+    color: #b3d9db;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 200px;
+}
+
+.tabla th, .tabla td {
+    border: 1px solid #2D3047;
+    padding: 10px;
+    text-align: center;
+}
+
+.tabla th {
+    background-color: #2D3047;
+    color: #DFF3E1;
+    font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabla tr:hover {
+    background-color: #e0e0e0;
+}
+
+#resultado_ahorro, #resultado_meta, #resultado_conversor {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #2D3047;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #2D3047;
+    border-radius: 5px;
+    background: #cef0f2;
+}
+
+footer {
+    text-align: center;
+    background-color: #507255;
+    padding: 13px;
+    width: 100%;
+    margin-top: auto;
+}
